@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class bankaccount
+{
+public:
+	void withdraw(double amount , double balance);
+	void deposit(double amount, double balance);
+	void show(string account_name,double account_number, double balance);
+private:
+	string account_name;
+	double balance , amount , account_number;
+};
+
+void bankaccount::withdraw(double amount , double balance)
+{  if (amount<=0)
+cout<<"That is impossible you have to enter a value more than zero\n";
+else if(amount>balance)
+	cout<<"You don't have that amount of money to be withdrawed\n";
+else
+	balance=balance-amount;
+}
+void bankaccount::deposit(double amount , double balance)
+{if (amount<=0)
+cout<<"Please enter a value more than zero\n";
+else
+	balance=balance+amount;
+
+}
+void bankaccount::show(string account_name,double account_number, double balance)
+{cout<<"Your account name is: "<<account_name<<endl<<"Your account number is: "<<account_number<<endl<<"Your final balance is: "<<balance<<endl;
+}
+void main()
+{ bankaccount x;
+int balance=100;
+x.withdraw(65,balance);
+int new_balance=balance;
+x.deposit(100,new_balance);
+x.show("MYaccount",8903321,new_balance);
+}
